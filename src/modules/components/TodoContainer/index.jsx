@@ -1,9 +1,9 @@
-import { TodoForm } from "./modules/TodoForm";
-import { TodoList } from "./modules/TodoList";
-import { Todo } from "./modules/Todo";
-import { useTodoList } from "./hooks/store";
+import React from "react";
+import { TodoList } from "../TodoList";
+import { Todo } from "../Todo";
+import { useTodoList } from "../../../hooks/store";
 
-const App = () => {
+const TodoContainer = () => {
   const todos = useTodoList((state) => state.todos);
   const completeTodo = useTodoList((state) => state.completeTodo);
   const deleteTodo = useTodoList((state) => state.deleteTodo);
@@ -22,7 +22,6 @@ const App = () => {
 
   return (
     <div>
-      <TodoForm />
       <h3>Todos</h3>
       <TodoList>
         {uncompletedTodos.map(({ title, desc, user, date, complete }) => (
@@ -57,4 +56,4 @@ const App = () => {
   );
 };
 
-export default App;
+export { TodoContainer };

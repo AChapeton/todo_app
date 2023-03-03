@@ -1,5 +1,5 @@
 import React from "react";
-import { useTodoList } from "../../hooks/store";
+import { useTodoList } from "../../../hooks/store";
 
 const Todo = ({ title, desc, user, date, complete, onComplete, onDelete }) => {
   const handleCheck = (e) => {
