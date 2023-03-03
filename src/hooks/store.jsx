@@ -14,7 +14,6 @@ const useTodoList = create((set) => ({
       const newTodos = [...state.todos];
       newTodos[todoIndex].complete = !newTodos[todoIndex].complete;
       return { todos: [...newTodos] };
-      console.log(todoIndex);
     });
   },
   deleteTodo: (title) => {
