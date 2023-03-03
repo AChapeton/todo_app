@@ -6,11 +6,14 @@ import { useTodoList } from "./hooks/store";
 const App = () => {
   const todos = useTodoList((state) => state.todos);
   const completeTodo = useTodoList((state) => state.completeTodo);
+  const deleteTodo = useTodoList((state) => state.deleteTodo);
 
   const handleCompleteTodo = (desc) => {
-    console.log(desc);
     completeTodo(desc);
-    console.log(todos);
+  };
+
+  const handleDeleteTodo = (desc) => {
+    deleteTodo(desc);
   };
 
   return (
@@ -25,6 +28,7 @@ const App = () => {
             desc={desc}
             complete={complete}
             onComplete={() => handleCompleteTodo(desc)}
+            onDelete={() => handleDeleteTodo(desc)}
           />
         ))}
       </TodoList>

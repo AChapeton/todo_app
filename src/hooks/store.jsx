@@ -17,6 +17,15 @@ const useTodoList = create((set) => ({
       console.log(todoIndex);
     });
   },
+  deleteTodo: (desc) => {
+    set((state) => {
+      const todoIndex = state.todos.findIndex((todo) => todo.desc === desc);
+      const newTodos = [...state.todos];
+      newTodos.splice(todoIndex, 1);
+      return { todos: [...newTodos] };
+      console.log(todoIndex);
+    });
+  },
 }));
 
 export { useTodoList };

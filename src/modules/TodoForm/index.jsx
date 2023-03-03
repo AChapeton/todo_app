@@ -11,7 +11,6 @@ const TodoForm = () => {
   const addTodo = useTodoList((state) => state.addTodo);
 
   const onSubmit = (todo) => {
-    // console.log(todo);
     addTodo(todo);
   };
 
