@@ -12,7 +12,7 @@ const useTodoList = create((set) => ({
     set((state) => {
       const todoIndex = state.todos.findIndex((todo) => todo.desc === desc);
       const newTodos = [...state.todos];
-      newTodos[todoIndex].complete = true;
+      newTodos[todoIndex].complete = !newTodos[todoIndex].complete;
       return { todos: [...newTodos] };
       console.log(todoIndex);
     });
