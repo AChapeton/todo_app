@@ -8,27 +8,28 @@ const App = () => {
   const completeTodo = useTodoList((state) => state.completeTodo);
   const deleteTodo = useTodoList((state) => state.deleteTodo);
 
-  const handleCompleteTodo = (desc) => {
-    completeTodo(desc);
+  const handleCompleteTodo = (title) => {
+    completeTodo(title);
   };
 
-  const handleDeleteTodo = (desc) => {
-    deleteTodo(desc);
+  const handleDeleteTodo = (title) => {
+    deleteTodo(title);
   };
 
   return (
     <div>
       <TodoForm />
       <TodoList>
-        {todos.map(({ name, date, desc, complete }) => (
+        {todos.map(({ title, desc, user, date, complete }) => (
           <Todo
-            key={name}
-            name={name}
-            date={date}
+            key={title}
+            title={title}
             desc={desc}
+            user={user}
+            date={date}
             complete={complete}
-            onComplete={() => handleCompleteTodo(desc)}
-            onDelete={() => handleDeleteTodo(desc)}
+            onComplete={() => handleCompleteTodo(title)}
+            onDelete={() => handleDeleteTodo(title)}
           />
         ))}
       </TodoList>

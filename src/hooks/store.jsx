@@ -8,18 +8,18 @@ const useTodoList = create((set) => ({
       return { todos: [...state.todos, newTodo] };
     });
   },
-  completeTodo: (desc) => {
+  completeTodo: (title) => {
     set((state) => {
-      const todoIndex = state.todos.findIndex((todo) => todo.desc === desc);
+      const todoIndex = state.todos.findIndex((todo) => todo.title === title);
       const newTodos = [...state.todos];
       newTodos[todoIndex].complete = !newTodos[todoIndex].complete;
       return { todos: [...newTodos] };
       console.log(todoIndex);
     });
   },
-  deleteTodo: (desc) => {
+  deleteTodo: (title) => {
     set((state) => {
-      const todoIndex = state.todos.findIndex((todo) => todo.desc === desc);
+      const todoIndex = state.todos.findIndex((todo) => todo.title === title);
       const newTodos = [...state.todos];
       newTodos.splice(todoIndex, 1);
       return { todos: [...newTodos] };

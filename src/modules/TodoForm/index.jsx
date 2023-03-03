@@ -17,20 +17,46 @@ const TodoForm = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div>
-        <label>Name:</label>
+        <label>Title:</label>
         <input
           type="text"
-          name="name"
-          id="id"
-          {...register("name", { required: true, maxLength: 50 })}
+          name="title"
+          id="title"
+          {...register("title", { required: true, maxLength: 50 })}
         />
-        {errors.name?.type === "required" && <p>Name is required</p>}
-        {errors.name?.type === "maxLength" && (
-          <p>Name cannot be more than 50 characters</p>
+        {errors.title?.type === "required" && <p>Title is required</p>}
+        {errors.title?.type === "maxLength" && (
+          <p>Title cannot have more than 50 characters</p>
         )}
       </div>
       <div>
-        <label>Date:</label>
+        <label>Description:</label>
+        <input
+          type="text"
+          name="desc"
+          id="desc"
+          {...register("desc", { required: true, maxLength: 200 })}
+        />
+        {errors.desc?.type === "required" && <p>Description is required</p>}
+        {errors.desc?.type === "maxLength" && (
+          <p>Description cannot have more than 50 characters</p>
+        )}
+      </div>
+      <div>
+        <label>User:</label>
+        <input
+          type="text"
+          name="user"
+          id="user"
+          {...register("user", { required: true, maxLength: 50 })}
+        />
+        {errors.user?.type === "required" && <p>User is required</p>}
+        {errors.user?.type === "maxLength" && (
+          <p>User cannot have more than 50 characters</p>
+        )}
+      </div>
+      <div>
+        <label>Due date:</label>
         <input
           type="date"
           name="date"
@@ -38,19 +64,6 @@ const TodoForm = () => {
           {...register("date", { required: true })}
         />
         {errors.date?.type === "required" && <p>Date is required</p>}
-      </div>
-      <div>
-        <label>Todo:</label>
-        <input
-          type="text"
-          name="desc"
-          id="desc"
-          {...register("desc", { required: true, maxLength: 200 })}
-        />
-        {errors.desc?.type === "required" && <p>Name is required</p>}
-        {errors.desc?.type === "maxLength" && (
-          <p>Description cannot be more than 50 characters</p>
-        )}
       </div>
       <button>Create</button>
     </form>
