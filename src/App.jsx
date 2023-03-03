@@ -5,13 +5,27 @@ import { useTodoList } from "./hooks/store";
 
 const App = () => {
   const todos = useTodoList((state) => state.todos);
+  const completeTodo = useTodoList((state) => state.completeTodo);
+
+  const handleCompleteTodo = (desc) => {
+    console.log(desc);
+    completeTodo(desc);
+    console.log(todos);
+  };
 
   return (
     <div>
       <TodoForm />
       <TodoList>
-        {todos.map(({ name, date, todo }) => (
-          <Todo key={todo} name={name} date={date} todo={todo} />
+        {todos.map(({ name, date, desc, complete }) => (
+          <Todo
+            key={name}
+            name={name}
+            date={date}
+            desc={desc}
+            complete={complete}
+            onComplete={() => handleCompleteTodo(desc)}
+          />
         ))}
       </TodoList>
     </div>

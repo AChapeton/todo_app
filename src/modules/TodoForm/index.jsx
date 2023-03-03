@@ -27,7 +27,7 @@ const TodoForm = () => {
       </div>
       <div>
         <label>Todo:</label>
-        <input type="text" name="todo" id="todo" {...register("todo")} />
+        <input type="text" name="desc" id="desc" {...register("desc")} />
       </div>
       <button>Create</button>
     </form>

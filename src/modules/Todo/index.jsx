@@ -1,12 +1,16 @@
 import React from "react";
+import { useTodoList } from "../../hooks/store";
 
-const Todo = ({ name, date, todo }) => {
+const Todo = ({ name, date, desc, complete, onComplete }) => {
+  // const completeTodo = useTodoList((state) => state.completeTodo);
+
   return (
-    <div>
+    <>
       <p>{name}</p>
       <p>{date}</p>
-      <p>{todo}</p>
-    </div>
+      <p>{desc}</p>
+      <span onClick={onComplete}>X</span>
+    </>
   );
 };
 
