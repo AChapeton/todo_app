@@ -27,4 +27,13 @@ const useTodoList = create((set) => ({
   },
 }));
 
-export { useTodoList };
+const useModal = create((set) => ({
+  isOpen: false,
+  toggleModal: () => {
+    set((state) => {
+      return { isOpen: !state.isOpen };
+    });
+  },
+}));
+
+export { useTodoList, useModal };

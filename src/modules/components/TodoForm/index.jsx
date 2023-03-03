@@ -1,17 +1,23 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useTodoList } from "../../../hooks/store";
+import { useTodoList, useModal } from "../../../hooks/store";
 
 const TodoForm = () => {
   const {
     register,
+    reset,
     formState: { errors },
     handleSubmit,
   } = useForm();
   const addTodo = useTodoList((state) => state.addTodo);
 
+  const isOpen = useModal((state) => state.isOpen);
+  const toggleModal = useModal((state) => state.toggleModal);
+
   const onSubmit = (todo) => {
     addTodo(todo);
+    reset();
+    toggleModal(!isOpen);
   };
 
   return (

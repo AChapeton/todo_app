@@ -1,12 +1,14 @@
 import React from "react";
 import { TodoList } from "../TodoList";
 import { Todo } from "../Todo";
-import { useTodoList } from "../../../hooks/store";
+import { useTodoList, useModal } from "../../../hooks/store";
+import { Modal } from "../Modal";
 
 const TodoContainer = () => {
   const todos = useTodoList((state) => state.todos);
   const completeTodo = useTodoList((state) => state.completeTodo);
   const deleteTodo = useTodoList((state) => state.deleteTodo);
+  const isOpen = useModal((state) => state.isOpen);
 
   const uncompletedTodos = todos.filter((todo) => !todo.complete);
   const completedTodos = todos.filter((todo) => todo.complete);
@@ -22,6 +24,7 @@ const TodoContainer = () => {
 
   return (
     <div>
+      {isOpen && <Modal />}
       <h3>Todos</h3>
       <TodoList>
         {uncompletedTodos.map(({ title, desc, user, date, complete }) => (
