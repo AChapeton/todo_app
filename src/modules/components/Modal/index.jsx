@@ -1,7 +1,7 @@
 import React from "react";
 import { TodoForm } from "../TodoForm";
 import { useModal } from "../../../hooks/store";
-import styles from "./styles.module.css";
+import styles from "./styles.module.scss";
 
 const Modal = () => {
   const isOpen = useModal((state) => state.isOpen);
