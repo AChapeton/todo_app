@@ -1,0 +1,58 @@
+.form {
+  width: 100%;
+}
+
+.formLabel {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.formInput {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.inputSuccess {
+  border-color: var(--green);
+}
+
+.inputError {
+  border-color: var(--red);
+}
+
+.formButton {
+  font-size: 50px;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 20px 0 0 0;
+}
+
+.button {
+  padding: 8px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: var(--white);
+  font-weight: 600;
+}
+
+.buttonSuccess {
+  background-color: var(--green);
+}
+
+.buttonCancel {
+  background-color: var(--red);
+}
+
+.errorMessage {
+  color: var(--white);
+  background-color: var(--red);
+  font-size: 14px;
+  padding: 2px 5px;
+  border-radius: 4px;
+}
