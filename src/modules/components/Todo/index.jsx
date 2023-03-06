@@ -16,7 +16,13 @@ const Todo = ({ title, desc, user, date, complete, onComplete, onDelete }) => {
         complete ? styles.todoComplete : styles.todoUncomplete
       }`}
     >
-      <p className={styles.todoTitle}>{title}</p>
+      <p
+        className={`${styles.todoTitle} ${
+          complete ? styles.todoTitleComplete : styles.todoTitleUncomplete
+        }`}
+      >
+        {title}
+      </p>
       <p>{desc}</p>
       <p>
         <FaUserAlt />: {user}

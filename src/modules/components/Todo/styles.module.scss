@@ -6,9 +6,9 @@
   margin: 10px auto;
   padding: 8px 10px;
 
-  // @include breakpoint(medium) {
-  //   width: 100%;
-  // }
+  @include breakpoint(medium) {
+    width: 100%;
+  }
 }
 
 .todoUncomplete {
@@ -24,6 +24,14 @@
   font-weight: 600;
   font-size: 20px;
   border-bottom: 1px solid white;
+}
+
+.todoTitleUnomplete {
+  text-decoration: none;
+}
+
+.todoTitleComplete {
+  text-decoration: line-through;
 }
 
 .todoActions {
