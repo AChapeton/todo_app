@@ -22,7 +22,7 @@ const TodoContainer = () => {
   };
 
   return (
-    <div className={styles.todosContainer}>
+    <div>
       <div>
         <h3>Todos</h3>
         <TodoList>

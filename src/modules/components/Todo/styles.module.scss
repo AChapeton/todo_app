@@ -1,0 +1,38 @@
+.todoCard {
+  width: 90%;
+  border-radius: 8px;
+  margin: 0 auto;
+  padding: 8px 10px;
+}
+
+.todoUncomplete {
+  background-color: white;
+  border: 1px solid var(--lightgray);
+}
+
+.todoComplete {
+  background-color: var(--lightgray);
+}
+
+.todoTitle {
+  font-weight: 600;
+  font-size: 20px;
+  border-bottom: 1px solid white;
+}
+
+.todoActions {
+  display: flex;
+  justify-content: space-evenly;
+
+  & input {
+    width: 18px;
+  }
+
+  & button {
+    font-size: 18px;
+  }
+}
+
+p {
+  margin-bottom: 10px;
+}

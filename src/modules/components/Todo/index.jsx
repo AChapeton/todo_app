@@ -1,27 +1,42 @@
 import React from "react";
-import { useTodoList } from "../../../hooks/store";
+import styles from "./styles.module.scss";
+import { FaUserAlt, FaRegCalendarAlt, FaRegTrashAlt } from "react-icons/fa";
+import dateFormat from "dateformat";
 
 const Todo = ({ title, desc, user, date, complete, onComplete, onDelete }) => {
   const handleCheck = (e) => {
     return e.target.checked;
   };
 
+  const formatDate = dateFormat(date, "mmmm dS");
+
   return (
-    <div>
-      <p>{title}</p>
+    <div
+      className={`${styles.todoCard} ${
+        complete ? styles.todoComplete : styles.todoUncomplete
+      }`}
+    >
+      <p className={styles.todoTitle}>{title}</p>
       <p>{desc}</p>
-      <p>{user}</p>
-      <p>{date}</p>
-      <input
-        type="checkbox"
-        name="check"
-        id="check"
-        onClick={onComplete}
-        onChange={handleCheck}
-        checked={complete}
-      />
-      {/* <p onClick={onComplete}>Complete</p> */}
-      <button onClick={onDelete}>X</button>
+      <p>
+        <FaUserAlt />: {user}
+      </p>
+      <p>
+        <FaRegCalendarAlt />: {formatDate}
+      </p>
+      <div className={styles.todoActions}>
+        <input
+          type="checkbox"
+          name="check"
+          id="check"
+          onClick={onComplete}
+          onChange={handleCheck}
+          checked={complete}
+        />
+        <button onClick={onDelete}>
+          <FaRegTrashAlt />
+        </button>
+      </div>
     </div>
   );
 };
