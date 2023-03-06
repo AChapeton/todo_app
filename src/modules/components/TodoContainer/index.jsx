@@ -2,6 +2,7 @@ import React from "react";
 import { TodoList } from "../TodoList";
 import { Todo } from "../Todo";
 import { useTodoList } from "../../../hooks/store";
+import styles from "./styles.module.scss";
 
 const TodoContainer = () => {
   const todos = useTodoList((state) => state.todos);
@@ -21,37 +22,41 @@ const TodoContainer = () => {
   };
 
   return (
-    <div>
-      <h3>Todos</h3>
-      <TodoList>
-        {uncompletedTodos.map(({ title, desc, user, date, complete }) => (
-          <Todo
-            key={title}
-            title={title}
-            desc={desc}
-            user={user}
-            date={date}
-            complete={complete}
-            onComplete={() => handleCompleteTodo(title)}
-            onDelete={() => handleDeleteTodo(title)}
-          />
-        ))}
-      </TodoList>
-      <h3>Completed todos</h3>
-      <TodoList>
-        {completedTodos.map(({ title, desc, user, date, complete }) => (
-          <Todo
-            key={title}
-            title={title}
-            desc={desc}
-            user={user}
-            date={date}
-            complete={complete}
-            onComplete={() => handleCompleteTodo(title)}
-            onDelete={() => handleDeleteTodo(title)}
-          />
-        ))}
-      </TodoList>
+    <div className={styles.todosContainer}>
+      <div>
+        <h3>Todos</h3>
+        <TodoList>
+          {uncompletedTodos.map(({ title, desc, user, date, complete }) => (
+            <Todo
+              key={title}
+              title={title}
+              desc={desc}
+              user={user}
+              date={date}
+              complete={complete}
+              onComplete={() => handleCompleteTodo(title)}
+              onDelete={() => handleDeleteTodo(title)}
+            />
+          ))}
+        </TodoList>
+      </div>
+      <div>
+        <h3>Completed todos</h3>
+        <TodoList>
+          {completedTodos.map(({ title, desc, user, date, complete }) => (
+            <Todo
+              key={title}
+              title={title}
+              desc={desc}
+              user={user}
+              date={date}
+              complete={complete}
+              onComplete={() => handleCompleteTodo(title)}
+              onDelete={() => handleDeleteTodo(title)}
+            />
+          ))}
+        </TodoList>
+      </div>
     </div>
   );
 };

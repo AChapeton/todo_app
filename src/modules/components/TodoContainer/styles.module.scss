@@ -1,0 +1,12 @@
+@import "../../../styles/mixins.scss";
+
+.todosContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 0 20px;
+  justify-items: center;
+
+  @include breakpoint(medium) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
