@@ -26,35 +26,43 @@ const TodoContainer = () => {
       <div>
         <h3>Todos</h3>
         <TodoList>
-          {uncompletedTodos.map(({ title, desc, user, date, complete }) => (
-            <Todo
-              key={title}
-              title={title}
-              desc={desc}
-              user={user}
-              date={date}
-              complete={complete}
-              onComplete={() => handleCompleteTodo(title)}
-              onDelete={() => handleDeleteTodo(title)}
-            />
-          ))}
+          {uncompletedTodos.length > 0 ? (
+            uncompletedTodos.map(({ title, desc, user, date, complete }) => (
+              <Todo
+                key={title}
+                title={title}
+                desc={desc}
+                user={user}
+                date={date}
+                complete={complete}
+                onComplete={() => handleCompleteTodo(title)}
+                onDelete={() => handleDeleteTodo(title)}
+              />
+            ))
+          ) : (
+            <p>There are no pending todos</p>
+          )}
         </TodoList>
       </div>
       <div>
         <h3>Completed todos</h3>
         <TodoList>
-          {completedTodos.map(({ title, desc, user, date, complete }) => (
-            <Todo
-              key={title}
-              title={title}
-              desc={desc}
-              user={user}
-              date={date}
-              complete={complete}
-              onComplete={() => handleCompleteTodo(title)}
-              onDelete={() => handleDeleteTodo(title)}
-            />
-          ))}
+          {completedTodos.length > 0 ? (
+            completedTodos.map(({ title, desc, user, date, complete }) => (
+              <Todo
+                key={title}
+                title={title}
+                desc={desc}
+                user={user}
+                date={date}
+                complete={complete}
+                onComplete={() => handleCompleteTodo(title)}
+                onDelete={() => handleDeleteTodo(title)}
+              />
+            ))
+          ) : (
+            <p>There are no completed todos</p>
+          )}
         </TodoList>
       </div>
     </div>
