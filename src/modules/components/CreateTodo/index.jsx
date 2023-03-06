@@ -1,5 +1,6 @@
 import React from "react";
 import { useModal } from "../../../hooks/store";
+import styles from "./styles.module.scss";
 
 function CreateTodo() {
   const isOpen = useModal((state) => state.isOpen);
@@ -9,7 +10,11 @@ function CreateTodo() {
     toggleModal(!isOpen);
   };
 
-  return <button onClick={handleOpen}>Create Todo</button>;
+  return (
+    <button className={styles.buttonCreate} onClick={handleOpen}>
+      Create Todo
+    </button>
+  );
 }
 
 export { CreateTodo };

@@ -1,6 +1,6 @@
 import { TodoForm } from "./components/TodoForm";
 import { TodoContainer } from "./components/TodoContainer";
-import { CreateTodo } from "./components/CreateTodo";
+import { TodoHeader } from "./components/TodoHeader";
 import { Modal } from "./components/Modal";
 import { useModal } from "../hooks/store";
 import "../styles/base.scss";
@@ -10,8 +10,8 @@ const App = () => {
   return (
     <div>
       {isOpen && <Modal />}
+      <TodoHeader />
       <TodoContainer />
-      <CreateTodo />
     </div>
   );
 };
